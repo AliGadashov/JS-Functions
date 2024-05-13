@@ -78,22 +78,24 @@
 
 //------------------------------- Task 5 -------------------------------------------
 
-alert("Task 5 : \n Verilən ədədin rəqəmləri cəmini hesablayan funksiya yazın");
+alert(
+  "Task 5 : \n Verilən ədədin rəqəmləri (Xana) cəmini hesablayan funksiya yazın"
+);
 
-function sum(array) {
-  let sum = 0;
-  for (let num of array) {
-    sum += num;
+let number = parseInt(prompt("Bir eded daxil edin: "));
+let sum = 0;
+let digit;
+
+function sumDigit(num) {
+  while (number % 10 > 0) {
+    digit = number % 10;
+    number = parseInt(number / 10);
+    sum = sum + digit;
   }
   return sum;
 }
 
-let arr = [];
-let howMany = parseInt(prompt("Neçə ədəd daxil etmək istəyirsiniz?"));
-
-for (let i = 0; i < howMany; i++) {
-  let number = parseInt(prompt("Ədəd daxil edin:"));
-  arr.push(number);
-}
-
-console.log(`daxil etdiyiniz ededlerin cəmi :`, sum(arr));
+console.log(
+  `Daxil etdiyiniz eded\: ${number} Xanalari cəmi:`,
+  sumDigit(number)
+);
